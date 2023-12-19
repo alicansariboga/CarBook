@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBoook.Application.Features.CQRS.Queries.AboutQueries
+namespace CarBoook.Application.Features.CQRS.Queries.CarQueries
 {
-    public class GetAboutByIdQuery
+    public class GetCarByIdQuery
     {
         public int Id { get; set; }
-        public GetAboutByIdQuery(int id)
+        public GetCarByIdQuery(int id)
         {
             Id = id;
         }

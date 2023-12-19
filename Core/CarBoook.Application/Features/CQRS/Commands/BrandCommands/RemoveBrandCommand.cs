@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBoook.Application.Features.CQRS.Queries.AboutQueries
+namespace CarBoook.Application.Features.CQRS.Commands.BrandCommands
 {
-    public class GetAboutByIdQuery
+    public class RemoveBrandCommand
     {
         public int Id { get; set; }
-        public GetAboutByIdQuery(int id)
+        public RemoveBrandCommand(int id)
         {
             Id = id;
         }
