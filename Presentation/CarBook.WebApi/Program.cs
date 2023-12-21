@@ -10,6 +10,7 @@ using CarBoook.Application.Features.CQRS.Handlers.CategoryHandlers;
 using CarBoook.Application.Features.CQRS.Handlers.ContactHandlers;
 using CarBoook.Application.Interfaces;
 using CarBoook.Application.Interfaces.CarInterfaces;
+using CarBoook.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,6 +57,10 @@ builder.Services.AddScoped<GetContactByIdQueryHandler>();
 builder.Services.AddScoped<CreateContactCommandHandler>();
 builder.Services.AddScoped<UpdateContactCommandHandler>();
 builder.Services.AddScoped<RemoveContactCommandHandler>();
+
+// WITH MEDIATOR DESIGN
+// Feature
+builder.Services.AddApplicationService(builder.Configuration);
 
 
 builder.Services.AddControllers();
