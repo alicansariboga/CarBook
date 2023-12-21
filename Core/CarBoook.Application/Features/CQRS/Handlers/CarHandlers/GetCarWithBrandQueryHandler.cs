@@ -1,5 +1,5 @@
 ﻿using CarBook.Domain.Entities;
-using CarBoook.Application.Features.CQRS.Results.CarResult;
+using CarBoook.Application.Features.CQRS.Results.CarResults;
 using CarBoook.Application.Interfaces;
 using CarBoook.Application.Interfaces.CarInterfaces;
 using System;

@@ -6,6 +6,8 @@ using CarBoook.Application.Features.CQRS.Handlers.AboutHandlers;
 using CarBoook.Application.Features.CQRS.Handlers.BannerHandlers;
 using CarBoook.Application.Features.CQRS.Handlers.BrandHandlers;
 using CarBoook.Application.Features.CQRS.Handlers.CarHandlers;
+using CarBoook.Application.Features.CQRS.Handlers.CategoryHandlers;
+using CarBoook.Application.Features.CQRS.Handlers.ContactHandlers;
 using CarBoook.Application.Interfaces;
 using CarBoook.Application.Interfaces.CarInterfaces;
 
@@ -42,6 +44,18 @@ builder.Services.AddScoped<CreateCarCommandHandler>();
 builder.Services.AddScoped<UpdateCarCommandHandler>();
 builder.Services.AddScoped<RemoveCarCommandHandler>();
 builder.Services.AddScoped<GetCarWithBrandQueryHandler>();
+// Category
+builder.Services.AddScoped<GetCategoryQueryHandler>();
+builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
+builder.Services.AddScoped<CreateCategoryCommandHandler>();
+builder.Services.AddScoped<UpdateCategoryCommandHandler>();
+builder.Services.AddScoped<RemoveCategoryCommandHandler>();
+// Contact
+builder.Services.AddScoped<GetContactQueryHandler>();
+builder.Services.AddScoped<GetContactByIdQueryHandler>();
+builder.Services.AddScoped<CreateContactCommandHandler>();
+builder.Services.AddScoped<UpdateContactCommandHandler>();
+builder.Services.AddScoped<RemoveContactCommandHandler>();
 
 
 builder.Services.AddControllers();

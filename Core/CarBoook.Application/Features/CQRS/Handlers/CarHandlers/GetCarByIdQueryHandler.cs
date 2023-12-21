@@ -2,7 +2,7 @@
 using CarBoook.Application.Features.CQRS.Queries.BrandQueries;
 using CarBoook.Application.Features.CQRS.Queries.CarQueries;
 using CarBoook.Application.Features.CQRS.Results.BrandResults;
-using CarBoook.Application.Features.CQRS.Results.CarResult;
+using CarBoook.Application.Features.CQRS.Results.CarResults;
 using CarBoook.Application.Interfaces;
 using System;
 using System.Collections.Generic;
