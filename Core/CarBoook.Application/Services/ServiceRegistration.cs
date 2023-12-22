@@ -12,7 +12,7 @@ namespace CarBoook.Application.Services
     {
         public static void AddApplicationService(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceRegistration).Assembly)); // Dependency Inj. eklenecek.
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceRegistration).Assembly)); // Dependency Inj. otomatik eklenecek.
         }
     }
 }

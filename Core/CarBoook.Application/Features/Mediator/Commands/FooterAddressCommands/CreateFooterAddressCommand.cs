@@ -1,14 +1,14 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Domain.Entities
+namespace CarBoook.Application.Features.Mediator.Commands.FooterAddressCommands
 {
-    public class FooterAddress
+    public class CreateFooterAddressCommand : IRequest
     {
-        public int FooterAddressID { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
