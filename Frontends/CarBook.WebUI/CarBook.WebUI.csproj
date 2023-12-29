@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Shared\Components\NewFolder\**" />
+    <Content Remove="Views\Shared\Components\NewFolder\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\NewFolder\**" />
+    <None Remove="Views\Shared\Components\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\carbook-master\.DS_Store" />
     <None Include="wwwroot\carbook-master\css\.DS_Store" />
     <None Include="wwwroot\carbook-master\css\bootstrap\.DS_Store" />
@@ -24,6 +31,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarBook.Dto\CarBook.Dto.csproj" />
   </ItemGroup>
 
 </Project>
