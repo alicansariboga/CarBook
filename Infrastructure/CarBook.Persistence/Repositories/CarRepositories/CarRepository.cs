@@ -24,5 +24,13 @@ namespace CarBook.Persistence.Repositories.CarRepositories
             var values = _context.Cars.Include(x => x.Brand).ToList();
             return values;
         }
+
+        // son 5 arabayi listeleme
+        public List<Car> GetLast5CarsWithBrands()
+        {
+            // select top(5) * from cars order by carID desc
+            var values = _context.Cars.Include(_x => _x.Brand).OrderByDescending(x=>x.CarID).Take(5).ToList();
+            return values;
+        }
     }
 }

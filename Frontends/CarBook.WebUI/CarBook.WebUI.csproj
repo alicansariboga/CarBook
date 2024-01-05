@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Car\**" />
+    <Content Remove="Views\Car\**" />
+    <EmbeddedResource Remove="Views\Car\**" />
+    <None Remove="Views\Car\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Car\Index.cshtml" />
     <None Include="wwwroot\carbook-master\.DS_Store" />
     <None Include="wwwroot\carbook-master\css\.DS_Store" />
     <None Include="wwwroot\carbook-master\css\bootstrap\.DS_Store" />
@@ -23,6 +31,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
   </ItemGroup>
 
