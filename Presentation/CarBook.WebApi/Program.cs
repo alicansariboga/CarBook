@@ -1,5 +1,6 @@
 using CarBook.Persistence.Context;
 using CarBook.Persistence.Repositories;
+using CarBook.Persistence.Repositories.BlogRepositories;
 using CarBook.Persistence.Repositories.CarRepositories;
 using CarBoook.Application.Features.CQRS.Commands.BannerCommands;
 using CarBoook.Application.Features.CQRS.Handlers.AboutHandlers;
@@ -9,6 +10,7 @@ using CarBoook.Application.Features.CQRS.Handlers.CarHandlers;
 using CarBoook.Application.Features.CQRS.Handlers.CategoryHandlers;
 using CarBoook.Application.Features.CQRS.Handlers.ContactHandlers;
 using CarBoook.Application.Interfaces;
+using CarBoook.Application.Interfaces.BlogInterfaces;
 using CarBoook.Application.Interfaces.CarInterfaces;
 using CarBoook.Application.Services;
 
@@ -19,6 +21,7 @@ builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 // adding ICarRepository to constructor
 builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
+builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
 
 // About
 builder.Services.AddScoped<GetAboutQueryHandler>();
