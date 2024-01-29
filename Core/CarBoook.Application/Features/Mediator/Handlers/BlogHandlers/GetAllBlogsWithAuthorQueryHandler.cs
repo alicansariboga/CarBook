@@ -31,7 +31,8 @@ namespace CarBoook.Application.Features.Mediator.Handlers.BlogHandlers
                 CreatedDate = x.CreatedDate,
                 Title = x.Title,
                 //CategoryName = x.Category.Name,
-                AuthorName = x.Author.Name
+                AuthorName = x.Author.Name,
+                Description = x.Description
             }).ToList();
         }
     }
