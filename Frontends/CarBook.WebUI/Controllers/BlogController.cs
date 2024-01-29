@@ -25,7 +25,7 @@ namespace CarBook.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode) //200 code
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultAllBlogsWıthAuthorDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultAllBlogsWithAuthorDto>>(jsonData);
                 return View(values);
             }
             return View();

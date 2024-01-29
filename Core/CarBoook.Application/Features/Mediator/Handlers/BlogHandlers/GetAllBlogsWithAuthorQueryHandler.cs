@@ -21,7 +21,7 @@ namespace CarBoook.Application.Features.Mediator.Handlers.BlogHandlers
 
         public async Task<List<GetAllBlogsWithAuthorQueryResult>> Handle(GetAllBlogsWithAuthorQuery request, CancellationToken cancellationToken)
         {
-            var values = _repository.GetLast3BlogsWithAuthors();
+            var values = _repository.GetAllBlogsWithAuthor();
             return values.Select(x => new GetAllBlogsWithAuthorQueryResult
             {
                 AuthorID = x.AuthorID,
