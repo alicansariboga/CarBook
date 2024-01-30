@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBoook.Application.Features.Mediator.Results.BlogResults
+namespace CarBook.Dto.BlogDtos
 {
-    public class GetBlogByIdQueryResult
+    public class GetBlogByIdDto
     {
         public int BlogID { get; set; }
         public string Title { get; set; }
