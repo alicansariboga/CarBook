@@ -21,4 +21,8 @@
     <ProjectReference Include="..\..\Core\CarBoook.Application\CarBoook.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\TagCloudRepositories\" />
+  </ItemGroup>
+
 </Project>

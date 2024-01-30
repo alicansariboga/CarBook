@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "BlogDetail";
     Layout = "~/Views/UILayout/Index.cshtml";
 }
@@ -8,17 +7,17 @@
     <div class="container">
         <div class="row">
 
-            @await Component.InvokeAsync("_BlogDetailsMainComponentPartial",new {id=ViewBag.blogid})
+            @await Component.InvokeAsync("_BlogDetailsMainComponentPartial", new { id = ViewBag.blogid })
 
             <div class="col-md-4 sidebar ftco-animate">
-                
+
                 @await Component.InvokeAsync("_BlogDetailsSideBarSearchBoxComponentPartial")
 
                 @await Component.InvokeAsync("_BlogDetailsCategoryComponentPartial")
 
                 @await Component.InvokeAsync("_BlogDetailsRecentBlogsComponentPartial")
 
-                @await Component.InvokeAsync("_BlogDetailsTagCloudComponentPartial")
+                @await Component.InvokeAsync("_BlogDetailsTagCloudComponentPartial", new { id = ViewBag.blogid })
 
                 @await Component.InvokeAsync("_BlogDetailsParagraphComponentPartial")
 
