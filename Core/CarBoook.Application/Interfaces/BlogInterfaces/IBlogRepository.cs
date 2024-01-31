@@ -11,5 +11,6 @@ namespace CarBoook.Application.Interfaces.BlogInterfaces
     {
         List<Blog> GetLast3BlogsWithAuthors();
         List<Blog> GetAllBlogsWithAuthor();
+        List<Blog> GetBlogsByAuthorId(int id);
     }
 }
