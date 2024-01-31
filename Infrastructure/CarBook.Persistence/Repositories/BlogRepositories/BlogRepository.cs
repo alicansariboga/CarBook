@@ -18,6 +18,13 @@ namespace CarBook.Persistence.Repositories.BlogRepositories
         {
             _context = context;
         }
+
+        public List<Blog> GetAllBlogsWithAuthor()
+        {
+            var values = _context.Blogs.Include(x=>x.Author).ToList();
+            return values;
+        }
+
         public List<Blog> GetLast3BlogsWithAuthors()
         {
             // select last(3) * from blogs order by blogID desc
