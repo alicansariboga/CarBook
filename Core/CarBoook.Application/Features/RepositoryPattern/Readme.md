@@ -1,0 +1,1 @@
+﻿Instead of creating a separate repository for each entity, IGenericRepository was implemented to have all control from a single place.
