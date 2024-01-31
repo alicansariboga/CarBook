@@ -4,3 +4,4 @@
 - Onion Architecture
 - CQRS Pattern Design
 - Mediator Pattern Design
+- Repository Pattern Design
