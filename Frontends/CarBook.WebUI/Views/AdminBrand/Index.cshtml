@@ -1,8 +1,9 @@
-﻿@model List<ResultCarWithBrandsDto>
+﻿@model List<ResultBrandDto>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
-    int count = 0;
+    var count = 0;
 }
 
 <div class="page-content">
@@ -15,40 +16,31 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Araba Listesi</h4>
+                                    <h4 class="card-title">Araba Markaları Listesi</h4>
                                     <p class="card-subtitle mb-4">
-                                        Arabalar ile ilgili ekleme, silme, güncelleme, arama ve listeleme gibi işlemleri bu sayfa üzerinden gerçekleştirebilirsiniz.
+                                        Arabalar ile ilgili marka listesi, markalar üzerinde düzenleme ve bir markayı kaldırma işlemini buradan gerçekleştirebilirsiniz.
                                     </p>
                                     <div class="table-responsive">
                                         <table class="table mb-0">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Marka</th>
-                                                    <th>Model</th>
-                                                    <th>Vites Türü</th>
-                                                    <th>Km</th>
+                                                    <th>Marka Adı</th>
                                                     <th>Sil</th>
                                                     <th>Güncelle</th>
-                                                    <th>Detaylar</th>
-                                                    <th>Sitede Gör</th>
+                                                    <th>Markaya Ait Araçlar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach(var item in Model)
+                                                @foreach (var item in Model)
                                                 {
                                                     count++;
                                                     <tr>
                                                         <th scope="row">@count</th>
-                                                        <td>@item.BrandName</td>
-                                                        <td>@item.Model</td>
-                                                        <td>@item.Transmission</td>
-                                                        <td>@item.Km</td>
-                                                        <td><a href="/AdminCar/RemoveCar/@item.CarID" class="btn btn-danger">Sil</a></td>
-                                                        <td><a href="/AdminCar/UpdateCar/@item.CarID" class="btn btn-success">Güncelle</a></td>
-                                                        <td><a href="/CarList/CarDetail/@item.CarID" class="btn btn-dark">Detaylar</a></td>
-                                                        <td><a href="#" class="btn btn-warning">Sitede Gör</a></td>
-                                                        <td><a href="#" class="btn btn-secondary">Fiyat Bilgileri</a></td>
+                                                        <td>@item.name</td>
+                                                        <td><a href="/AdminBrand/RemoveBrand/@item.brandID" class="btn btn-danger">Sil</a></td>
+                                                        <td><a href="/AdminBrand/UpdateBrand/@item.brandID" class="btn btn-success">Güncelle</a></td>
+                                                        <td><a href="/AdminBrand/UpdateBrand/@item.brandID" class="btn btn-secondary">Markaya Ait Araçlar</a></td>
                                                     </tr>
                                                 }
                                             </tbody>
@@ -65,12 +57,12 @@
                                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
                                                     <div>
-                                                        Herhangi bir araç kaydı bulunamadı. Lütfen veri girişi yapınız.
+                                                        Herhangi bir marka bulunamadı. Lütfen veri girişi yapınız.
                                                     </div>
                                                 </div>
                                             </div>
                                         }
-                                        <a href="/AdminCar/CreateCar/" class="btn btn-primary">Yeni araç girişi</a>
+                                        <a href="/AdminBrand/CreateBrand/" class="btn btn-primary">Yeni marka girişi</a>
                                     </div>
                                 </div>
                             </div>
@@ -81,3 +73,4 @@
         </div>
     </div>
 </div>
+

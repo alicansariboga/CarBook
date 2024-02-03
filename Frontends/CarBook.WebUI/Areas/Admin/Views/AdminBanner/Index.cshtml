@@ -1,8 +1,8 @@
-﻿@model List<ResultCarWithBrandsDto>
+﻿@model List<ResultBannerDto>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
-    int count = 0;
 }
 
 <div class="page-content">
@@ -15,40 +15,36 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Araba Listesi</h4>
+                                    <h4 class="card-title">Ana Sayfa Banner Alanı</h4>
                                     <p class="card-subtitle mb-4">
-                                        Arabalar ile ilgili ekleme, silme, güncelleme, arama ve listeleme gibi işlemleri bu sayfa üzerinden gerçekleştirebilirsiniz.
+                                        Ana sayfanın banner alanında bulunan bilgileri aşağıdan düzenleyebilirsiniz. Tema bütünlüğünün bozulmaması adına lütfen sadece bir adet veri girişi yapınız. Aksi durumlarda tema bütünlüğü bozulacaktır.
                                     </p>
                                     <div class="table-responsive">
                                         <table class="table mb-0">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Marka</th>
-                                                    <th>Model</th>
-                                                    <th>Vites Türü</th>
-                                                    <th>Km</th>
+                                                    <th>Başlık</th>
+                                                    <th>Açıklama</th>
+                                                    <th>Video URL</th>
+                                                    <th>Video Açıklama</th>
                                                     <th>Sil</th>
                                                     <th>Güncelle</th>
-                                                    <th>Detaylar</th>
-                                                    <th>Sitede Gör</th>
+                                                    <th>Youtube'de Aç</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach(var item in Model)
+                                                @foreach (var item in Model)
                                                 {
-                                                    count++;
                                                     <tr>
-                                                        <th scope="row">@count</th>
-                                                        <td>@item.BrandName</td>
-                                                        <td>@item.Model</td>
-                                                        <td>@item.Transmission</td>
-                                                        <td>@item.Km</td>
-                                                        <td><a href="/AdminCar/RemoveCar/@item.CarID" class="btn btn-danger">Sil</a></td>
-                                                        <td><a href="/AdminCar/UpdateCar/@item.CarID" class="btn btn-success">Güncelle</a></td>
-                                                        <td><a href="/CarList/CarDetail/@item.CarID" class="btn btn-dark">Detaylar</a></td>
-                                                        <td><a href="#" class="btn btn-warning">Sitede Gör</a></td>
-                                                        <td><a href="#" class="btn btn-secondary">Fiyat Bilgileri</a></td>
+                                                        <th>#</th>
+                                                        <td>@item.Title</td>
+                                                        <td>@item.Decription</td>
+                                                        <td>@item.VideoUrl</td>
+                                                        <td>@item.VideoDescripton</td>
+                                                        <td><a href="/Admin/AdminBanner/RemoveBrand/@item.BannerID" class="btn btn-danger">Sil</a></td>
+                                                        <td><a href="/Admin/AdminBanner/UpdateBrand/@item.BannerID" class="btn btn-success">Güncelle</a></td>
+                                                        <td><a href="/Admin/AdminBanner/UpdateBrand/@item.BannerID" class="btn btn-secondary">Youtube'de Aç</a></td>
                                                     </tr>
                                                 }
                                             </tbody>
@@ -65,12 +61,12 @@
                                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
                                                     <div>
-                                                        Herhangi bir araç kaydı bulunamadı. Lütfen veri girişi yapınız.
+                                                        Herhangi bir banner bulunamadı. Lütfen veri girişi yapınız.
                                                     </div>
                                                 </div>
                                             </div>
                                         }
-                                        <a href="/AdminCar/CreateCar/" class="btn btn-primary">Yeni araç girişi</a>
+                                        <a href="/Admin/AdminBanner/CreateBanner/" class="btn btn-primary">Yeni banner girişi</a>
                                     </div>
                                 </div>
                             </div>
@@ -81,3 +77,6 @@
         </div>
     </div>
 </div>
+
+
+
