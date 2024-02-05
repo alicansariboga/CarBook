@@ -1,0 +1,49 @@
+﻿@model CreateAuthorDto
+
+@{
+    ViewData["Title"] = "CreateAuthor";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Yeni Yazar Girişi</h4>
+                                    <p class="card-subtitle mb-4">
+                                        Yazarlara ait bilgileri aşağıdaki panelden ekleyebilirsiniz.
+                                    </p>
+                                    <form method="post">
+                                        <div class="form-group">
+                                            <label for="exampleInputName">Yazar Adı</label>
+                                            <input type="text" class="form-control" id="exampleInputName" asp-for="Name" placeholder="Yazar adını giriniz">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputDescription">Açıklama</label>
+                                            <textarea rows="5" class="form-control" id="exampleInputDescription" asp-for="Description" placeholder="Açıklamayı giriniz."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputImageUrl">Yazar Görsel URL</label>
+                                            <input type="text" class="form-control" id="exampleInputImageUrl" asp-for="ImageUrl" placeholder="Görsele ait linkini giriniz">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Yazar bilgisini Kaydet</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
