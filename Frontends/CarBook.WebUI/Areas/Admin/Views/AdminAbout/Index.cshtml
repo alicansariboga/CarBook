@@ -1,4 +1,4 @@
-﻿@model List<ResultBannerDto>
+﻿@model List<ResultAboutDto>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,14 +10,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    @* TABLE *@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Ana Sayfa Banner Alanı</h4>
+                                    <h4 class="card-title">Ana Sayfa Hakkımızda Alanı</h4>
                                     <p class="card-subtitle mb-4">
-                                        Ana sayfanın banner alanında bulunan bilgileri aşağıdan düzenleyebilirsiniz. Tema bütünlüğünün bozulmaması adına lütfen sadece bir adet veri girişi yapınız. Aksi durumlarda tema bütünlüğü bozulacaktır.
+                                        Ana sayfanın hakkımızda alanında bulunan bilgileri aşağıdan düzenleyebilirsiniz. Tema bütünlüğünün bozulmaması adına lütfen sadece bir adet veri girişi yapınız. Aksi durumlarda tema bütünlüğü bozulacaktır.
                                     </p>
                                     <div class="table-responsive">
                                         <table class="table mb-0">
@@ -26,11 +25,10 @@
                                                     <th>#</th>
                                                     <th>Başlık</th>
                                                     <th>Açıklama</th>
-                                                    <th>Video URL</th>
-                                                    <th>Video Açıklama</th>
+                                                    <th>Görsel URL</th>
                                                     <th>Sil</th>
                                                     <th>Güncelle</th>
-                                                    <th>Youtube'de Aç</th>
+                                                    <th>Görseli Gör</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -38,13 +36,12 @@
                                                 {
                                                     <tr>
                                                         <th>#</th>
-                                                        <td>@item.Title</td>
-                                                        <td>@item.Decription</td>
-                                                        <td>@item.VideoUrl</td>
-                                                        <td>@item.VideoDescripton</td>
-                                                        <td><a href="/Admin/AdminBanner/RemoveBanner/@item.BannerID" class="btn btn-danger">Sil</a></td>
-                                                        <td><a href="/Admin/AdminBanner/UpdateBanner/@item.BannerID" class="btn btn-success">Güncelle</a></td>
-                                                        <td><a href="#" class="btn btn-secondary">Youtube'de Aç</a></td>
+                                                        <td>@item.title</td>
+                                                        <td>@item.decription</td>
+                                                        <td>@item.imageUrl</td>
+                                                        <td><a href="/Admin/AdminAbout/RemoveAbout/@item.aboutID" class="btn btn-danger">Sil</a></td>
+                                                        <td><a href="/Admin/AdminAbout/UpdateAbout/@item.aboutID" class="btn btn-success">Güncelle</a></td>
+                                                        <td><a href="#" class="btn btn-secondary">Görseli Gör</a></td>
                                                     </tr>
                                                 }
                                             </tbody>
@@ -61,7 +58,7 @@
                                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
                                                     <div>
-                                                        Herhangi bir banner bulunamadı. Lütfen veri girişi yapınız.
+                                                        Herhangi bir hakkımızda bilgisi bulunamadı. Lütfen veri girişi yapınız.
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,12 +75,12 @@
                                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
                                                     <div>
-                                                        Lütfen sadece 1 adet banner bilgisi ekleyiniz. Aksi taktirde, Banner alanı için tema bütünlüğü bozulacaktır.
+                                                        Lütfen sadece 1 adet hakkımızda bilgisi ekleyiniz. Aksi taktirde, Hakkımızda alanı için tema bütünlüğü bozulacaktır.
                                                     </div>
                                                 </div>
                                             </div>
                                         }
-                                        <a href="/Admin/AdminBanner/CreateBanner/" class="btn btn-primary">Yeni banner girişi</a>
+                                        <a href="/Admin/AdminAbout/CreateAbout/" class="btn btn-primary">Yeni hakkımızda girişi</a>
                                     </div>
                                 </div>
                             </div>
@@ -94,6 +91,7 @@
         </div>
     </div>
 </div>
+
 
 
 

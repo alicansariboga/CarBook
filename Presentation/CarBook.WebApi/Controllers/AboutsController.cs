@@ -49,7 +49,7 @@ namespace CarBook.WebApi.Controllers
             return Ok("Hakkimda bilgisi silindi.");
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateAbput(UpdateAboutCommand command)
+        public async Task<IActionResult> UpdateAbout(UpdateAboutCommand command)
         {
             await _updateAboutCommandHandler.Handle(command);
             return Ok("Hakkimda bilgisi guncellendi.");
