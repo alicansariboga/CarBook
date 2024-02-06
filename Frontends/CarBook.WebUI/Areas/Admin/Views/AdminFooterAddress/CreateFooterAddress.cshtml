@@ -1,0 +1,52 @@
+﻿@model CreateFooterAddressDto
+
+@{
+    ViewData["Title"] = "CreateFooterAddress";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    @* TABLE *@
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Yeni FooterAddress Girişi</h4>
+                                    <p class="card-subtitle mb-4">
+                                        Sayfa Alt Bilgisi alanına veri girişini aşağıdaki panelden yapabilirsiniz.
+                                    </p>
+                                    <form method="post">
+                                        <div class="form-group">
+                                            <label for="exampleInputDescription">Açıklama</label>
+                                            <input type="text" class="form-control" id="exampleInputDescription" asp-for="Description" placeholder="Açıklamayı giriniz">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputAddress">Adres</label>
+                                            <input type="text" class="form-control" id="exampleInputAddress" asp-for="Address" placeholder="Adres bilgisini giriniz">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPhone">Telefon</label>
+                                            <input type="text" class="form-control" id="exampleInputPhone" asp-for="Phone" placeholder="Telefon bilgisini giriniz">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail">E-mail</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail" asp-for="Email" placeholder="E-mail bilgisini giriniz">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Sayfa Alt Bilgisini Kaydet</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
