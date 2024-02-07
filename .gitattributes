@@ -4,6 +4,14 @@
 * text=auto
 
 ###############################################################################
+# Detecting Project Language - Ignore other frontend files
+*.html linguist-detectable=false
+*.scss linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-detectable=false
+
+
+###############################################################################
 # Set default behavior for command prompt diff.
 #
 # This is need for earlier builds of msysgit that does not have it on by
