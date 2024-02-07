@@ -9,3 +9,5 @@
 
 - It has more than 10 pages and 1 admin panel.
 
+- Note: Since there are many frontend design files and languages ​​in the project, I hide them in the ".gitattributes" file. So, this project actually, contains a lot of html, css, scss and js code.
+
