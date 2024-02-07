@@ -5,7 +5,7 @@
 
 ###############################################################################
 # Detecting Project Language - Ignore other frontend files
-#wwwroot/* linguist-vendored
+Frontends/* linguist-vendored
 
 ###############################################################################
 # Set default behavior for command prompt diff.
