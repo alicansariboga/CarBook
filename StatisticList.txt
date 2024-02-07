@@ -1,0 +1,16 @@
+- Araba sayisi
+- Lokasyon Sayisi
+- Yazar sayisi
+- Blog sayisi
+- Marka sayisi
+- gunluk ortalama arac kiralama fiyati
+- haftalik ortalama arac kiralama fiyati
+- aylik ortalama arac kiralama fiyati
+- otomatik vites arac sayisi
+- en fazla araca sahip olan marka
+- en fazla yorum alan blog basligi
+- 1000 Km'den dusuk araclarin sayisi
+- benzin veya dizel araclar
+- elektrikli araclar
+- en pahali arac
+- en ucuz arac

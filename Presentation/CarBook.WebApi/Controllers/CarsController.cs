@@ -1,6 +1,8 @@
 ﻿using CarBoook.Application.Features.CQRS.Commands.CarCommands;
 using CarBoook.Application.Features.CQRS.Handlers.CarHandlers;
 using CarBoook.Application.Features.CQRS.Queries.CarQueries;
+using CarBoook.Application.Features.Mediator.Queries.StatisticsQueries;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
