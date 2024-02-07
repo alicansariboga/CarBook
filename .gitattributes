@@ -5,6 +5,7 @@
 
 ###############################################################################
 # Detecting Project Language - Ignore other frontend files
+*.html linguist-detectable=false
 *.scss linguist-detectable=false
 *.css linguist-detectable=false
 *.js linguist-detectable=false
