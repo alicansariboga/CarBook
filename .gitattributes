@@ -4,17 +4,8 @@
 * text=auto
 
 ###############################################################################
-# Detecting Project Language
-*.csharp linguist-detectable=true
-
-*.java linguist-detectable=false
-
-*.js linguist-detectable=false
-
-*.html linguist-detectable=false
-
-*.xml linguist-detectable=false
-*.scss linguist-detectable=false
+# Detecting Project Language - Ignore other frontend files
+wwwroot/* linguist-vendored
 
 ###############################################################################
 # Set default behavior for command prompt diff.
