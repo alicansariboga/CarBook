@@ -1,0 +1,44 @@
+﻿@model UpdateSocialMediaDto
+
+@{
+    ViewData["Title"] = "CreateSocialMedia";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Yeni Sosyal Medya Girişi</h4>
+                                    <p class="card-subtitle mb-4">
+                                        İletişim ve Sayfa Alt Alanı (Footer) bölümünde yer alan Sosyal Medya bağlantısını eklemek için aşağıdaki alanları eksiksiz doldurmanız gerekmektedir. Bütün alanları doldurduktan sonra kaydet butonuna tıklayarak işleminizi tamamlayabilirsiniz.
+                                    </p>
+                                    <form method="post">
+                                        <div class="form-group">
+                                            <label for="exampleInputName">Sosyal Medya Adı</label>
+                                            <input type="text" class="form-control" id="exampleInputName" asp-for="Name" placeholder="Sosyal Medya adını giriniz">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputLinkUrl">Sosyal Medya Linki</label>
+                                            <textarea rows="5" class="form-control" id="exampleInputLinkUrl" asp-for="Url" placeholder="Sosyal Medya bağlantı adresini giriniz."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputIconUrl">Sosyal Medya Icon Linki</label>
+                                            <input type="text" class="form-control" id="exampleInputIconUrl" asp-for="Icon" placeholder="Sosyal Medya simgesine ait linki giriniz">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Sosyal Medya bilgisini Kaydet</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

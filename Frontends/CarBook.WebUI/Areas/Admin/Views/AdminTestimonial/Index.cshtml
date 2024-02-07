@@ -1,4 +1,4 @@
-﻿@model List<ResultAuthorDto>
+﻿@model List<ResultTestimonialDto>
 
 @{
     ViewData["Title"] = "Index";
@@ -15,19 +15,21 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Yazar Listesi</h4>
+                                    <h4 class="card-title">Ana Sayfa Referanslar Listesi Alanı</h4>
                                     <p class="card-subtitle mb-4">
-                                        Yazarlarla ilgili işlemlerin gerçekleştirileceği sayfadır. Yazar girişi yaparken bilgileri eksiksiz girmeye özen gösterelim.
+                                        Müşterilerimizin bizim hakkımızda söylemiş oldukları ifadeleri yorum olarak ekleyip, düzenleyebildiğimiz sayfamız aşağıda yer almaktadır.
                                     </p>
                                     <div class="table-responsive">
                                         <table class="table mb-0">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Yazar Adı</th>
+                                                    <th>Referans Resim</th>
+                                                    <th>Adı Soyadı</th>
+                                                    <th>Başlık</th>
+                                                    <th>Yorum</th>
                                                     <th>Sil</th>
                                                     <th>Güncelle</th>
-                                                    <th>Yazarın Blogları</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -36,11 +38,13 @@
                                                     count++;
                                                     <tr>
                                                         <th>@count</th>
-                                                        <td><img src="@item.ImageUrl" width="50" height="50" style="margin-right:10px" class="rounded-circle" />  @item.Name</td>
-                                                        <td><a href="/Admin/AdminAuthor/RemoveAuthor/@item.AuthorID" class="btn btn-danger">Sil</a></td>
-                                                        <td><a href="/Admin/AdminAuthor/UpdateAuthor/@item.AuthorID" class="btn btn-success">Güncelle</a></td>
-                                                        <td><a href="#" class="btn btn-secondary">Blogları Görüntüle</a></td>
-                                                    </tr>
+                                                        <td><img src="@item.ImageUrl" width="50" height="50" class="rounded-circle"/></td>
+                                                        <td>@item.Name</td>
+                                                        <td>@item.Title</td>
+                                                        <td>@item.Comment</td>
+                                                        <td><a href="/Admin/AdminTestimonial/RemoveTestimonial/@item.TestimonialID" class="btn btn-danger">Sil</a></td>
+                                                        <td><a href="/Admin/AdminTestimonial/UpdateTestimonial/@item.TestimonialID" class="btn btn-success">Güncelle</a></td>
+                                                        </tr>
                                                 }
                                             </tbody>
                                         </table>
@@ -56,12 +60,12 @@
                                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
                                                     <div>
-                                                        Herhangi bir yazar bilgisi bulunamadı. Lütfen veri girişi yapınız.
+                                                        Herhangi bir referans bilgisi bulunamadı.
                                                     </div>
                                                 </div>
                                             </div>
                                         }
-                                        <a href="/Admin/AdminAuthor/CreateAuthor/" class="btn btn-primary">Yeni yazar girişi</a>
+                                        <a href="/Admin/AdminTestimonial/CreateTestimonial/" class="btn btn-primary">Yeni Referans Girişi</a>
                                     </div>
                                 </div>
                             </div>
@@ -72,6 +76,3 @@
         </div>
     </div>
 </div>
-
-
-

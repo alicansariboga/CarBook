@@ -1,4 +1,4 @@
-﻿@model List<ResultAuthorDto>
+﻿@model List<ResultServiceDto>
 
 @{
     ViewData["Title"] = "Index";
@@ -15,19 +15,21 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Yazar Listesi</h4>
+                                    <h4 class="card-title">Ana Sayfa Hizmetler Alanı</h4>
                                     <p class="card-subtitle mb-4">
-                                        Yazarlarla ilgili işlemlerin gerçekleştirileceği sayfadır. Yazar girişi yaparken bilgileri eksiksiz girmeye özen gösterelim.
+                                        Ana sayfa ve Hizmetler bölümünde yer alan hizmet listesinin admin tarafındaki işlemlerini aşağıdan gerçekleştirebilirsiniz. Tema bütünlüğünün bozulmaması adına lütfen en fazla 4 adet veri girişi yapınız. Aksi durumlarda tema bütünlüğü bozulacaktır.
                                     </p>
                                     <div class="table-responsive">
                                         <table class="table mb-0">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Yazar Adı</th>
+                                                    <th>Başlık</th>
+                                                    <th>Açıklama</th>
+                                                    <th>Icon URL</th>
                                                     <th>Sil</th>
                                                     <th>Güncelle</th>
-                                                    <th>Yazarın Blogları</th>
+                                                    <th>Görseli Gör</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -36,10 +38,11 @@
                                                     count++;
                                                     <tr>
                                                         <th>@count</th>
-                                                        <td><img src="@item.ImageUrl" width="50" height="50" style="margin-right:10px" class="rounded-circle" />  @item.Name</td>
-                                                        <td><a href="/Admin/AdminAuthor/RemoveAuthor/@item.AuthorID" class="btn btn-danger">Sil</a></td>
-                                                        <td><a href="/Admin/AdminAuthor/UpdateAuthor/@item.AuthorID" class="btn btn-success">Güncelle</a></td>
-                                                        <td><a href="#" class="btn btn-secondary">Blogları Görüntüle</a></td>
+                                                        <td>@item.Title</td>
+                                                        <td>@item.Description</td>
+                                                        <td>@item.IconUrl</td>
+                                                        <td><a href="/Admin/AdminService/RemoveService/@item.ServiceID" class="btn btn-danger">Sil</a></td>
+                                                        <td><a href="/Admin/AdminService/UpdateService/@item.ServiceID" class="btn btn-success">Güncelle</a></td>
                                                     </tr>
                                                 }
                                             </tbody>
@@ -56,12 +59,29 @@
                                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
                                                     <div>
-                                                        Herhangi bir yazar bilgisi bulunamadı. Lütfen veri girişi yapınız.
+                                                        Herhangi bir hizmet bilgisi bulunamadı. Lütfen veri girişi yapınız.
                                                     </div>
                                                 </div>
                                             </div>
                                         }
-                                        <a href="/Admin/AdminAuthor/CreateAuthor/" class="btn btn-primary">Yeni yazar girişi</a>
+                                        @if (ViewBag.ValueControl > 4)
+                                        {
+                                            <div class="mt-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                                    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                                                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                    </symbol>
+                                                </svg>
+
+                                                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+                                                    <div>
+                                                        Lütfen en fazla 4 adet hizmet bilgisi ekleyiniz. Aksi taktirde, Hakkımızda alanı için tema bütünlüğü bozulacaktır.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <a href="/Admin/AdminService/CreateService/" class="btn btn-primary">Yeni Hizmet Girişi</a>
                                     </div>
                                 </div>
                             </div>
@@ -72,6 +92,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 
 

@@ -1,0 +1,49 @@
+﻿@model UpdateTestimonialDto
+
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Referans Sayfası Veri Düzenleme Alanı</h4>
+                                    <p class="card-subtitle mb-4">
+                                        Referans düzenleme işleminin yapıldığı alandır. Bilgileri eksiksiz olarak doldurduktan sonra kaybet butonuna tıklayarak işleminizi tamamlayabilirsiniz.
+                                    </p>
+                                    <form method="post">
+                                        <input type="hidden" asp-for="TestimonialID" />
+                                        <div class="form-group">
+                                            <label for="exampleInputName">Adı Soyadı</label>
+                                            <input type="text" class="form-control" id="exampleInputName" asp-for="Name" placeholder="Referans adını ve soyadını giriniz.">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">Referans Ünvanı</label>
+                                            <textarea rows="5" class="form-control" id="exampleInputTitle" asp-for="Title" placeholder="Referans ünvanını giriniz."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputImageUrl">Referans Resim</label>
+                                            <input type="text" class="form-control" id="exampleInputImageUrl" asp-for="ImageUrl" placeholder="Referans resmine ait linki giriniz">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputComment">Referans</label>
+                                            <textarea rows="5" asp-for="Comment" class="form-control" placeholder="Yorumunuzu buraya yazınız."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Referans bilgisini Güncelle</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model UpdateServiceDto
+
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Hizmetler Bilgisi Güncelleme</h4>
+                                    <p class="card-subtitle mb-4">
+                                        Ana sayfanın hakkımızda alanında bulunan bilgileri aşağıdan güncelleyebilirsiniz.
+                                    </p>
+                                    <form method="post">
+                                        <input type="hidden" asp-for="ServiceID" />
+                                        <div class="form-group">
+                                            <label for="exampleInputTitle">Başlık</label>
+                                            <input type="text" class="form-control" id="exampleInputTitle" asp-for="Title" placeholder="Başlığı giriniz">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputDescription">Açıklama</label>
+                                            <textarea rows="5" class="form-control" id="exampleInputDecription" asp-for="Description" placeholder="Açıklamayı giriniz."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputIconUrl">Icon URL</label>
+                                            <input type="text" class="form-control" id="exampleInputIconUrl" asp-for="IconUrl" placeholder="Hizmet simgesine ait linki giriniz">
+                                        </div>
+                                        <button type="submit" class="btn btn-success waves-effect waves-light">Hizmet bilgisini Güncelle</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
