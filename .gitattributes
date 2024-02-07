@@ -14,6 +14,7 @@
 *.html linguist-detectable=false
 
 *.xml linguist-detectable=false
+*.scss linguist-detectable=false
 
 ###############################################################################
 # Set default behavior for command prompt diff.
