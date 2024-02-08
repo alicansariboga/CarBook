@@ -8,22 +8,22 @@ namespace CarBoook.Application.Interfaces.StatisticsInterfaces
 {
     public interface IStatisticsRepository
     {
-        int GetCarCount();
-        int GetLocationCount();
         int GetAuthorCount();
-        int GetBlogCount();
-        int GetBrandCount();
         decimal GetAvgRentPriceForDaily();
         decimal GetAvgRentPriceForWeekly();
         decimal GetAvgRentPriceForMonthly();
-        int GetCarCountByTransmissionIsAuto();
-        string GetBrandNameByMaxCar();
+        int GetBlogCount();
         string GetBlogTitleByMaxBlogComment();
-        int GetCarCountByKmLT1000();
-        int GetCarCountByFuelGasolineOrDiesel();
-        int GetCarCountByFuelElectric();
+        int GetBrandCount();
+        string GetBrandNameByMaxCar();
         string GetCarBrandAndModelByRentPriceDailyMax();
         string GetCarBrandAndModelByRentPriceDailyMin();
+        int GetCarCountByFuelElectric();
+        int GetCarCountByFuelGasolineOrDiesel();
+        int GetCarCountByKmLT1000();
+        int GetCarCountByTransmissionIsAuto();
+        int GetCarCount();
+        int GetLocationCount();
 
 
     }
