@@ -34,5 +34,9 @@ namespace CarBook.Persistence.Context
         public DbSet<Author> Authors { get; set; }
         public DbSet<TagCloud> TagClouds { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<RentACar> RentACars { get; set; }
+        public DbSet<RentACarProcess> RentACarProcesses { get; set; } // It will be updated later.
+        public DbSet<Customer> Customers { get; set; } // It will be updated later.
+
     }
 }
