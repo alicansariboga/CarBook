@@ -13,7 +13,7 @@ namespace CarBoook.Application.Interfaces.StatisticsInterfaces
         decimal GetAvgRentPriceForWeekly();
         decimal GetAvgRentPriceForMonthly();
         int GetBlogCount();
-        string GetBlogTitleByMaxBlogComment();
+        string GetBlogTitleByMaxBlogComment(); 
         int GetBrandCount();
         string GetBrandNameByMaxCar();
         string GetCarBrandAndModelByRentPriceDailyMax();

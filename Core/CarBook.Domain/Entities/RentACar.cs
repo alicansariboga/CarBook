@@ -19,6 +19,7 @@ namespace CarBook.Domain.Entities
 
         [ForeignKey("CarID")]
         public int CarID { get; set; }
+        [ForeignKey("CarID")]
         public Car Car { get; set; }
         public bool Available { get; set; }
     }
