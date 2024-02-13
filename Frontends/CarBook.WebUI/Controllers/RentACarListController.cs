@@ -1,5 +1,5 @@
-﻿using CarBook.Dto.RentACarDtos;
-using CarBook.Dto.ServiceDtos;
+﻿using CarBook.Dto.LocationDtos;
+using CarBook.Dto.RentACarDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
@@ -14,7 +14,7 @@ namespace CarBook.WebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<IActionResult> Index(FilterRentACarDto filterRentACarDto)
+        public async Task<IActionResult> Index(int id)
         {
             var locationID = TempData["locationID"];
             var book_pick_date = TempData["book_pick_date"];
@@ -22,8 +22,10 @@ namespace CarBook.WebUI.Controllers
             var time_pick = TempData["time_pick"];
             var time_off = TempData["time_off"];
 
-            filterRentACarDto.LocationID = int.Parse(locationID.ToString());
-            filterRentACarDto.Available = true;
+            //filterRentACarDto.LocationID = int.Parse(locationID.ToString());
+            //filterRentACarDto.Available = true;
+
+            id = int.Parse(locationID.ToString());
 
             ViewBag.locationID = locationID;
             ViewBag.book_pick_date = book_pick_date;
@@ -32,12 +34,13 @@ namespace CarBook.WebUI.Controllers
             ViewBag.time_off = time_off;
 
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(filterRentACarDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7210/api/RentACars/", stringContent);
+            var responseMessage = await client.GetAsync($"https://localhost:7210/api/RentACars?locationID={id}&available=true");
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index", "AdminService", new { area = "Admin" });
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<FilterRentACarDto>>(jsonData);
+                ViewBag.ValueControl = values.Count;
+                return View(values);
             }
             return View();
         }

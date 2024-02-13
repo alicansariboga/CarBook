@@ -8,7 +8,10 @@ namespace CarBook.Dto.RentACarDtos
 {
     public class FilterRentACarDto
     {
-        public int LocationID { get; set; }
-        public bool Available { get; set; }
+        public int CarID { get; set; }
+        public string Brand { get; set; }
+        public string Model { get; set; }
+        public decimal Amount { get; set; }
+        public string CoverImageUrl { get; set; }
     }
 }
