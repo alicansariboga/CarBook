@@ -37,6 +37,15 @@ namespace CarBook.Persistence.Context
         public DbSet<RentACar> RentACars { get; set; }
         public DbSet<RentACarProcess> RentACarProcesses { get; set; } // It will be updated later.
         public DbSet<Customer> Customers { get; set; } // It will be updated later.
+        public DbSet<Reservation> Reservations { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Reservation>()
+                .HasOne(x=>x.PickUpLocation).WithMany(y=>y.PickUpReservation).HasForeignKey(x=>x.PickUpLocationID).OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Reservation>()
+                .HasOne(x => x.DropOffLocation).WithMany(y => y.DropOffReservation).HasForeignKey(x => x.DropOffLocationID).OnDelete(DeleteBehavior.ClientSetNull);
+        }
     }
 }
