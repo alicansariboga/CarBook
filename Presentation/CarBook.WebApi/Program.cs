@@ -26,6 +26,8 @@ using CarBoook.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+#region Registrations
 // Add services to the container.
 builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
@@ -76,6 +78,7 @@ builder.Services.AddScoped<GetContactByIdQueryHandler>();
 builder.Services.AddScoped<CreateContactCommandHandler>();
 builder.Services.AddScoped<UpdateContactCommandHandler>();
 builder.Services.AddScoped<RemoveContactCommandHandler>();
+#endregion
 
 // WITH MEDIATOR DESIGN
 // Feature
