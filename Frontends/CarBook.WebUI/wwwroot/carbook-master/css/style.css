@@ -8889,8 +8889,8 @@ h1, h2, h3, h4, h5,
       color: #01d28e; }
       .table tbody tr td.product-name .rated span:nth-child(1) {
         color: #000000; }
-      .table tbody tr td.product-name .rated span:last-child {
-        color: rgba(0, 0, 0, 0.1); }
+      /*.table tbody tr td.product-name .rated span:last-child {
+        color: rgba(0, 0, 0, 0.1); }*/
     .table tbody tr td.price {
       text-align: center !important;
       background: rgba(0, 0, 0, 0.05);
@@ -8904,8 +8904,15 @@ h1, h2, h3, h4, h5,
       transition: all 0.3s ease; }
       .table tbody tr td.price:last-child {
         border-left: none; }
-      .table tbody tr td.price h3 {
-        position: relative; }
+        .table tbody tr td.price span.price-old {
+            font-size: 14px;
+            text-decoration: line-through;
+            color: red;
+            padding-right: 65px;
+        }
+        .table tbody tr td.price h3 {
+            position: relative;
+        }
         .table tbody tr td.price h3 small {
           position: absolute;
           top: 0;
@@ -8913,13 +8920,15 @@ h1, h2, h3, h4, h5,
           font-size: 14px; }
         .table tbody tr td.price h3 span.num {
           color: #1089ff;
-          font-size: 20px;
+          font-size: 28px;
           position: relative; }
         .table tbody tr td.price h3 span.per {
-          font-size: 14px;
-          color: rgba(0, 0, 0, 0.4); }
-      .table tbody tr td.price .subheading {
-        font-size: 14px; }
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 10px;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.4);
+        }
       .table tbody tr td.price .btn-custom {
         position: absolute;
         top: 50%;

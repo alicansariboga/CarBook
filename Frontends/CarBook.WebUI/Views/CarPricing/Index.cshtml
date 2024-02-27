@@ -23,7 +23,7 @@
 						@foreach(var item in Model)
 							{
 							<tbody>
-								<tr class="">
+								<tr>
 									<td class="car-image"><div class="img" style="background-image:url(@item.CoverImageUrl);"></div></td>
 									<td class="product-name">
 										<h3>@item.Brand - @item.model</h3>
@@ -37,14 +37,20 @@
 										</p>
 									</td>
 
+									@{
+										
+									}
+
 									<td class="price">
 										<p class="btn-custom"><a href="#">Bu Aracı Kiralayın</a></p>
 										<div class="price-rate">
 											<h3>
+												<span class="per">Günlük Fiyat</span>
+											</h3>
+											<h3>
+												<br />
 												<span class="num"><small class="currency">₺</small> @item.dailyAmount</span>
-												<span class="per">/Günlük Fiyat</span>
 											</h3>
-											<span class="subheading">$$$</span>
 										</div>
 									</td>
 
@@ -52,10 +58,12 @@
 										<p class="btn-custom"><a href="#">Bu Aracı Kiralayın</a></p>
 										<div class="price-rate">
 											<h3>
+												<span class="per">Haftalık Fiyat</span>
+											</h3>
+											<h3>
+												<span class="price-old">₺@ViewBag.PriceChanges[ViewBag.i].Item1 </span><br />
 												<span class="num"><small class="currency">₺</small> @item.weeklyAmount</span>
-												<span class="per">/Haftalık Fiyat</span>
 											</h3>
-											<span class="subheading">$$$</span>
 										</div>
 									</td>
 
@@ -63,10 +71,12 @@
 										<p class="btn-custom"><a href="#">Bu Aracı Kiralayın</a></p>
 										<div class="price-rate">
 											<h3>
-												<span class="num"><small class="currency">₺</small> @item.monthlyAmount</span>
-												<span class="per">/Aylık Fiyat</span>
+												<span class="per">Aylık Fiyat</span>
 											</h3>
-											<span class="subheading">$$$</span>
+											<h3>
+												<span class="price-old">₺@ViewBag.PriceChanges[ViewBag.i].Item2 </span><br />
+												<span class="num"><small class="currency">₺</small> @item.monthlyAmount</span>
+											</h3>
 										</div>
 									</td>
 								</tr>
