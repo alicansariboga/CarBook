@@ -1,6 +1,7 @@
 ﻿using CarBook.Domain.Entities;
 using CarBook.Persistence.Context;
 using CarBoook.Application.Interfaces.CarFeatureInterfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace CarBook.Persistence.Repositories.CarFeatureRepositories
 
         public List<CarFeature> GetCarFeaturesByCarId(int carID)
         {
-            var values = _context.CarFeatures.Where(x => x.CarID == carID).ToList();
+            var values = _context.CarFeatures.Include(y => y.Feature).Where(x => x.CarID == carID).ToList();
             return values;
         }
     }

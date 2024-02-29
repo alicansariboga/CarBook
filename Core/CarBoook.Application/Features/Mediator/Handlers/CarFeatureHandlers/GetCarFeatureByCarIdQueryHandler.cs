@@ -28,6 +28,7 @@ namespace CarBoook.Application.Features.Mediator.Handlers.CarFeatureHandlers
             var values = _repository.GetCarFeaturesByCarId(request.Id);
             return values.Select(x => new GetCarFeatureByCarIdQueryResult
             {
+                FeatureName = x.Feature.Name,
                 CarFeatureID = x.CarFeatureID,
                 FeatureID = x.FeatureID,
                 Available = x.Available,
