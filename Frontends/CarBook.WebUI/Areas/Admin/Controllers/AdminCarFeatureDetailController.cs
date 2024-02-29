@@ -1,6 +1,8 @@
 ﻿using CarBook.Dto.CarFeatureDtos;
+using CarBook.Dto.CategoryDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
@@ -38,14 +40,22 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
             {
                 if(item.Available)
                 {
-
+                    var client = _httpClientFactory.CreateClient();
+                    var jsonData = JsonConvert.SerializeObject(resultCarFeatureByCarIdDtos);
+                    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                    await client.PutAsync("https://localhost:7210/api/CarFeature/", stringContent);
+                    return RedirectToAction("Index", "AdminCar");
                 }
                 else
                 {
-
+                    var client = _httpClientFactory.CreateClient();
+                    var jsonData = JsonConvert.SerializeObject(resultCarFeatureByCarIdDtos);
+                    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                    await client.PutAsync("https://localhost:7210/api/CarFeature/", stringContent);
+                    return RedirectToAction("Index", "AdminCar");
                 }
             }
-            return RedirectToAction("Index", "AdminCar");
+            return View();
         } 
     }
 }
