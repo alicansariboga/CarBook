@@ -28,10 +28,9 @@
                                                     <th>Model</th>
                                                     <th>Vites Türü</th>
                                                     <th>Km</th>
-                                                    <th>Sil</th>
-                                                    <th>Güncelle</th>
-                                                    <th>Detaylar</th>
-                                                    <th>Sitede Gör</th>
+                                                    <th colspan="2" style="border-right: 1px solid #DEE2E6; border-left: 1px solid #DEE2E6; text-align: center">CRUD İşlemleri</th>
+                                                    <th colspan="4" style="text-align: center">Diğer İşlemler</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -44,11 +43,12 @@
                                                         <td>@item.Model</td>
                                                         <td>@item.Transmission</td>
                                                         <td>@item.Km</td>
-                                                        <td><a href="/AdminCar/RemoveCar/@item.CarID" class="btn btn-danger">Sil</a></td>
-                                                        <td><a href="/AdminCar/UpdateCar/@item.CarID" class="btn btn-success">Güncelle</a></td>
+                                                        <td style="border-left: 1px solid #DEE2E6;"><a href="/AdminCar/RemoveCar/@item.CarID" class="btn btn-danger">Sil</a></td>
+                                                        <td style="border-right: 1px solid #DEE2E6;"><a href="/AdminCar/UpdateCar/@item.CarID" class="btn btn-success">Güncelle</a></td>
                                                         <td><a href="/Admin/AdminCarFeatureDetail/Index/@item.CarID" class="btn btn-dark">Detaylar</a></td>
-                                                        <td><a href="#" class="btn btn-warning">Sitede Gör</a></td>
+                                                        <td><a href="/Admin/AdminCarFeatureDetail/CreateFeatureByCarID" class="btn btn-info">Özellik Ata</a></td>
                                                         <td><a href="#" class="btn btn-secondary">Fiyat Bilgileri</a></td>
+                                                        <td><a href="#" class="btn btn-warning">Sitede Gör</a></td>
                                                     </tr>
                                                 }
                                             </tbody>

@@ -1,4 +1,5 @@
 ﻿using CarBoook.Application.Features.Mediator.Commands.CarFeatureCommand;
+using CarBoook.Application.Features.Mediator.Commands.CarFeatureCommands;
 using CarBoook.Application.Features.Mediator.Queries.BlogQueries;
 using CarBoook.Application.Features.Mediator.Queries.CarFeatureQueries;
 using MediatR;
@@ -34,6 +35,12 @@ namespace CarBook.WebApi.Controllers
         {
             _mediator.Send(new UpdateCarFeatureAvailableChangeToTrueCommand(id));
             return Ok("OK.");
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateCarFeatureByCarID(CreateCarFeatureByCarCommand command)
+        {
+            _mediator.Send(command);
+            return Ok("Ekleme işlemi başarılı bir şekilde tamamlandı.");
         }
     }
 }

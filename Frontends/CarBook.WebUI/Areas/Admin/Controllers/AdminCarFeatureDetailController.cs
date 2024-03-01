@@ -1,5 +1,5 @@
 ﻿using CarBook.Dto.CarFeatureDtos;
-using CarBook.Dto.CategoryDtos;
+using CarBook.Dto.FeatureDto;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
@@ -32,7 +32,7 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
-        [Route("Index")]
+        [Route("Index/{id}")]
         [HttpPost]
         public async Task<IActionResult> Index(List<ResultCarFeatureByCarIdDto> resultCarFeatureByCarIdDtos)
         {
@@ -41,21 +41,32 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
                 if(item.Available)
                 {
                     var client = _httpClientFactory.CreateClient();
-                    var jsonData = JsonConvert.SerializeObject(resultCarFeatureByCarIdDtos);
-                    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                    await client.PutAsync("https://localhost:7210/api/CarFeature/", stringContent);
-                    return RedirectToAction("Index", "AdminCar");
+                    await client.GetAsync("https://localhost:7210/api/CarFeatures/CarFeatureChangeAvailableToTrue?id=" + item.CarFeatureID );
                 }
                 else
                 {
                     var client = _httpClientFactory.CreateClient();
-                    var jsonData = JsonConvert.SerializeObject(resultCarFeatureByCarIdDtos);
-                    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                    await client.PutAsync("https://localhost:7210/api/CarFeature/", stringContent);
-                    return RedirectToAction("Index", "AdminCar");
+                    await client.GetAsync("https://localhost:7210/api/CarFeatures/CarFeatureChangeAvailableToFalse?id=" + item.CarFeatureID);
                 }
             }
+            // return View();
+            return RedirectToAction("Index", "AdminCar");
+        }
+        [Route("CreateFeatureByCarID")]
+        [HttpGet]
+        public async Task<IActionResult> CreateFeatureByCarID()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7210/api/Features");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                // situation code of 200 / passed
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultFeatureDto>>(jsonData);
+                ViewBag.ValueControl = values.Count;
+                return View(values);
+            }
             return View();
-        } 
+        }
     }
 }

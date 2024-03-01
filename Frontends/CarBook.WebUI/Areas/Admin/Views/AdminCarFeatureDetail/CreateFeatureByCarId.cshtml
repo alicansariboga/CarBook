@@ -1,7 +1,7 @@
-﻿@model List<ResultCarFeatureByCarIdDto>
+﻿@model List<ResultFeatureDto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "CreateFeatureByCarId";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -14,21 +14,21 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Araca Ait Özellikler Listesi</h4>
+                                    <h4 class="card-title">Araca Ait Özellik Ekleme Sayfası</h4>
                                     <p class="card-subtitle mb-4">
-                                        Araca ait özellik eklemesi yapabilir, mevcut özellikleri kaldırabilir ve ilgili güncellemeleri gerçekleştirebilirsiniz.
+                                        Araca ait özellik tanımlaması yapılacak bölümdür.
                                     </p>
                                     <form method="post">
                                         @for (int i = 0; i < Model.Count; i++)
                                         {
                                             <div class="form-check">
-                                                <input type="hidden" asp-for="@Model[i].CarFeatureID" />
-                                                <input type="hidden" asp-for="@Model[i].FeatureName" />
-                                                <input type="checkbox" asp-for="@Model[i].Available" class="form-check-input" />
-                                                <label class="form-check-label" for="@Model[i].Available">@Model[i].FeatureName</label>
-                                            </div>
+                                                <input type="hidden" asp-for="@Model[i].FeatureID" />
+                                                <input type="hidden" asp-for="@Model[i].Name" />
+                                                <input type="checkbox" class="form-check-input" />
+                                                <label class="form-check-label">@Model[i].Name</label>
+                                                </div>
                                         }
-                                        <button class="btn btn-success">Değişiklikleri Kaydet</button>
+                                        <button class="btn btn-primary">Araca Özellikleri Ata</button>
                                     </form>
                                 </div>
                             </div>
