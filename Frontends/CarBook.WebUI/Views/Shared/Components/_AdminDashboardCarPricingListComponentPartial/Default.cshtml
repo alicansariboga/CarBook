@@ -1,5 +1,9 @@
 ﻿@model List<ResultCarPricingListWithModelDto>
 
+    @{
+        var shortedModel = Model.OrderBy(item => item.Brand).Take(7);
+    }
+
 <div class="col-xl-6">
     <div class="card">
         <div class="card-body">
@@ -21,14 +25,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var item in Model)
+                        @foreach (var item in shortedModel)
                         {
                             <tr>
                                 <td class="text-truncate">@item.Brand</td>
                                 <td class="text-truncate">@item.model</td>
                                 @* <td>
-                                    <span class="badge badge-soft-secondary p-2">Test</span>
-                                </td> *@
+                            <span class="badge badge-soft-secondary p-2">Test</span>
+                            </td> *@
                                 <td class="text-truncate">₺ @item.dailyAmount</td>
                                 <td class="text-truncate">₺ @item.weeklyAmount</td>
                                 <td class="text-truncate">₺ @item.monthlyAmount</td>
@@ -36,8 +40,11 @@
                         }
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-end">
+                    <a href="#" class="btn btn-success mt-3">Daha Fazla Görüntüle</a>
+                </div>
             </div>
 
-        </div> <!-- end card-body-->
-    </div> <!-- end card-->
-</div> <!-- end col -->
+        </div>
+    </div>
+</div>
