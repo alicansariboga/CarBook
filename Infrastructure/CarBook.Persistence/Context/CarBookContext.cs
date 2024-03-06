@@ -38,6 +38,7 @@ namespace CarBook.Persistence.Context
         public DbSet<RentACarProcess> RentACarProcesses { get; set; } // It will be updated later.
         public DbSet<Customer> Customers { get; set; } // It will be updated later.
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
