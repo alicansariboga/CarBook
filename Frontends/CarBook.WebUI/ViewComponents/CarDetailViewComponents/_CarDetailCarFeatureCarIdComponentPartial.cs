@@ -24,7 +24,6 @@ namespace CarBook.WebUI.ViewComponents.CarDetailViewComponents
 				// situation code of 200 / passed
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();
 				var values = JsonConvert.DeserializeObject<List<ResultCarFeatureByCarIdDto>>(jsonData);
-				ViewBag.ValueControl = values.Count;
 				return View(values);
 			}
 			return View();
