@@ -10,7 +10,6 @@ namespace CarBook.Domain.Entities
 	{
         public int ReviewID { get; set; }
         public string CustomerName { get; set; }
-        public string MyProperty { get; set; }
         public string CustomerImage { get; set; }
         public string Comment { get; set; }
         public int RatingValue { get; set; }
