@@ -12,11 +12,14 @@ namespace CarBook.WebApi.Controllers
 	public class ReviewsController : ControllerBase
 	{
 		private readonly IMediator _mediator;
+		CreateReviewValidator _validator = new CreateReviewValidator();
 
-		public ReviewsController(IMediator mediator)
+		public ReviewsController(IMediator mediator, CreateReviewValidator validator)
 		{
 			_mediator = mediator;
+			_validator = validator;
 		}
+
 		[HttpGet]
 		public async Task<IActionResult> ReviewListByCarId(int id)
 		{
@@ -27,8 +30,8 @@ namespace CarBook.WebApi.Controllers
 		public async Task<IActionResult> CreateReview(CreateReviewCommand command)
 		{
 			// The validator object and SOLID were not damaged much.
-			CreateReviewValidator validator = new CreateReviewValidator();
-			var validationResult = validator.Validate(command);
+			// CreateReviewValidator validator = new CreateReviewValidator();
+			var validationResult = _validator.Validate(command);
 
 			if (!validationResult.IsValid)
 			{
