@@ -30,6 +30,8 @@ using CarBoook.Application.Interfaces.ReviewInterfaces;
 using CarBoook.Application.Interfaces.StatisticsInterfaces;
 using CarBoook.Application.Interfaces.TagCloudInterfaces;
 using CarBoook.Application.Services;
+using FluentValidation.AspNetCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -94,6 +96,11 @@ builder.Services.AddScoped<RemoveContactCommandHandler>();
 // Feature
 builder.Services.AddApplicationService(builder.Configuration);
 
+// Fluent Validation
+builder.Services.AddControllers().AddFluentValidation(x =>
+{
+    x.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

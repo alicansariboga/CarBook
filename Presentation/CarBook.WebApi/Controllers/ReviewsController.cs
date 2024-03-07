@@ -1,5 +1,6 @@
 ﻿using CarBoook.Application.Features.Mediator.Commands.ReviewCommands;
 using CarBoook.Application.Features.Mediator.Queries.ReviewQueries;
+using CarBoook.Application.Validators.ReviewValidators;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,9 +26,18 @@ namespace CarBook.WebApi.Controllers
 		[HttpPost]
 		public async Task<IActionResult> CreateReview(CreateReviewCommand command)
 		{
+			// The validator object and SOLID were not damaged much.
+			CreateReviewValidator validator = new CreateReviewValidator();
+			var validationResult = validator.Validate(command);
+
+			if (!validationResult.IsValid)
+			{
+				return BadRequest(validationResult.Errors);
+			}
 			await _mediator.Send(command);
 			return Ok("Ekleme işlemi basarili bir sekilde gerçekleşti.");
-		}[HttpPut]
+		}
+		[HttpPut]
 		public async Task<IActionResult> UpdateReview(UpdateReviewCommand command)
 		{
 			await _mediator.Send(command);
