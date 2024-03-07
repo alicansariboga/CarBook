@@ -20,7 +20,7 @@ namespace CarBoook.Application.Tools
             {
                 claims.Add(new Claim(ClaimTypes.Role, result.Role)); //new client
             }
-            claims.Add(new Claim(ClaimTypes.NameIdentifier,result.AppUserId.ToString());
+            claims.Add(new Claim(ClaimTypes.NameIdentifier,result.AppUserId.ToString()));
 
             if(!string.IsNullOrWhiteSpace(result.Username))
             {
