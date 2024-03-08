@@ -18,7 +18,7 @@ namespace CarBook.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(GetCheckAppUserQuery query)
+        public async Task<IActionResult> Login(GetCheckAppUserQuery query)
         {
             var values = await _mediator.Send(query);
             if(values.IsExist)
