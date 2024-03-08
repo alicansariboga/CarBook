@@ -28,6 +28,9 @@ namespace CarBoook.Application.Features.Mediator.Handlers.AppUserHandlers
                 Password = request.Password,
                 // AppRoleID= 3, // Default
                 AppRoleID = (int)RoleTypes.Member, // Enum
+                Name = request.Name,
+                Surname = request.Surname,
+                Email = request.Email,
             });
         }
     }
