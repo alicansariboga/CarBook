@@ -2,7 +2,6 @@
 using CarBoook.Application.Features.Mediator.Queries.AppUserQueries;
 using CarBoook.Application.Features.Mediator.Results.AppUserResults;
 using CarBoook.Application.Interfaces;
-using CarBoook.Application.Interfaces.AppUserInterfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;
