@@ -1,11 +1,15 @@
 ﻿using CarBoook.Application.Features.Mediator.Commands.LocationCommands;
 using CarBoook.Application.Features.Mediator.Queries.LocationQueries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WebApi.Controllers
 {
+    [Authorize(Roles = "Admin")]
+    // 401 - access authorization error
+
     [Route("api/[controller]")]
     [ApiController]
     public class LocationsController : ControllerBase
