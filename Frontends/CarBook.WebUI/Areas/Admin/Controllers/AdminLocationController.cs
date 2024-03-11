@@ -1,10 +1,14 @@
 ﻿using CarBook.Dto.LocationDtos;
+using CarBook.WebUI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
+    // 403 - access authorization error
     [Area("Admin")]
     // Location routing
     [Route("Admin/AdminLocation")]
@@ -20,6 +24,21 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
+            var token = User.Claims.FirstOrDefault(x => x.Type == "carbookToken")?.Value;
+            if (token != null)
+            {
+                var client1 = _httpClientFactory.CreateClient();
+                client1.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                var responseMessage1 = await client1.GetAsync($"https://localhost:7210/api/Locations");
+                if (responseMessage1.IsSuccessStatusCode)
+                {
+                    var jsonData = await responseMessage1.Content.ReadAsStringAsync();
+                    var values = JsonConvert.DeserializeObject<ResultLocationDto>(jsonData);
+                    return View(values);
+                }
+                return View();
+            }
+
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7210/api/Locations/");
             if (responseMessage.IsSuccessStatusCode)
