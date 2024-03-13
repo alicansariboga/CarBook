@@ -11,6 +11,7 @@ using CarBook.Persistence.Repositories.RentACarRepositories;
 using CarBook.Persistence.Repositories.ReviewRepositories;
 using CarBook.Persistence.Repositories.StatisticsRepositories;
 using CarBook.Persistence.Repositories.TagCloudRepositories;
+using CarBook.WebApi.Hubs;
 using CarBoook.Application.Features.CQRS.Commands.BannerCommands;
 using CarBoook.Application.Features.CQRS.Handlers.AboutHandlers;
 using CarBoook.Application.Features.CQRS.Handlers.BannerHandlers;
@@ -38,6 +39,19 @@ using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// API yi frontentte tuketmek icin izin politikasi
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.AllowAnyHeader()
+        .AllowAnyMethod()
+        .SetIsOriginAllowed((host) => true)
+        .AllowCredentials();
+    });
+}); 
+builder.Services.AddSignalR();
 
 //Json Web Token(JWT)
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -135,6 +149,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Cors-signalR
+app.UseCors("CorsPolicy");
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
@@ -142,5 +159,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<CarHub>("/carhub");
 
 app.Run();
