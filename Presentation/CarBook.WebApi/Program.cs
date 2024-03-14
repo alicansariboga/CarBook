@@ -39,6 +39,8 @@ using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+// For Cors
+builder.Services.AddHttpClient();
 
 // API yi frontentte tuketmek icin izin politikasi
 builder.Services.AddCors(opt =>
@@ -50,7 +52,7 @@ builder.Services.AddCors(opt =>
         .SetIsOriginAllowed((host) => true)
         .AllowCredentials();
     });
-}); 
+});
 builder.Services.AddSignalR();
 
 //Json Web Token(JWT)
